@@ -3,8 +3,3 @@
 
 - name: Install things
   import_tasks: installs.yml
-
-- name: Cron settings
-  import_tasks: cron.yml
-  tags:
-  - cron

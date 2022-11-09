@@ -45,12 +45,12 @@ homebrew_cask_packages:
 - cryptomator
 - daisydisk
 - discord
-- docker
 - dropbox
 - expressvpn
 - figma
 - firefox
 - google-chrome
+- homebrew/cask/docker
 - homebrew/cask-fonts/font-fira-mono-for-powerline
 - homebrew/cask-fonts/font-ubuntu-mono
 - homebrew/cask-fonts/font-jetbrains-mono

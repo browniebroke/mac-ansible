@@ -6,14 +6,12 @@
       msg: Check we are running in the directory of the script
     failed_when: not ansible_env.PWD.endswith('/mac-ansible')
 
-  - debug:
-      msg: Check we are on a supported version of macOS (High Sierra or later)
+  - name: Check we are on a supported version of macOS (High Sierra or later)
     shell: sw_vers -productVersion
     register: macos-version
     failed_when: macos-version.stdout is version('10.13', '<')
 
-  - debug:
-      msg: Check Xcode is installed
+  - name: Check Xcode is installed
     shell: xcode-select -p
     register: xcode-select-path
     failed_when: xcode-select-path.rc != 0

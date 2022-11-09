@@ -8,13 +8,13 @@
 
   - name: Check we are on a supported version of macOS (High Sierra or later)
     shell: sw_vers -productVersion
-    register: macos-version
-    failed_when: macos-version.stdout is version('10.13', '<')
+    register: macosversion
+    failed_when: macosversion.stdout is version('10.13', '<')
 
   - name: Check Xcode is installed
     shell: xcode-select -p
-    register: xcode-select-path
-    failed_when: xcode-select-path.rc != 0
+    register: xcodeselectpath
+    failed_when: xcodeselectpath.rc != 0
 
 - hosts: localhost
   connection: local

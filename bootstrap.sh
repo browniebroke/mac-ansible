@@ -1,11 +1,16 @@
-#/usr/env bash
+#!/usr/bin/env bash
 
-# Install homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if ! command -v brew &> /dev/null
+then
+  echo "Missing Homebrew, installing..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 
-brew install pyenv
-pyenv install 3.10.8
-~/.pyenv/versions/3.10.8/bin/python -m venv venv
-source venv/bin/activate
-pip install ansible
-./playbook.yml
+if ! command -v ansible-playbook &> /dev/null
+then
+  echo "Missing Ansible, installing..."
+  brew install ansible
+fi
+
+echo "Running playbook..."
+ansible-playbook playbook.yml

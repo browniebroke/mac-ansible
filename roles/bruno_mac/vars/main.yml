@@ -30,6 +30,7 @@ homebrew_packages:
 - sd
 - shellcheck
 - sqlite
+- stats
 - tree
 - wagoodman/dive/dive
 - watch

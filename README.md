@@ -9,7 +9,13 @@ Adapted version of Adam Johnson's Ansible scripts. See his [blog post](https://a
 One time setup, to start from a clean slate:
 
 1. Install Xcode: `xcode-select --install`
-2. Run `./bootstrap.sh`
+2. Download & extract: 
+   ```
+   curl -L https://github.com/browniebroke/mac-ansible/archive/main.tar.gz | tar -xz
+   mv mac-ansible-main mac-ansible
+   cd mac-ansible
+   ```
+3. Run `./bootstrap.sh`
 
 ## Running the playbook
 

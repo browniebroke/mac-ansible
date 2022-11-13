@@ -62,7 +62,6 @@ homebrew_cask_packages:
 - jetbrains-toolbox
 - krita
 - rectangle
-- skim
 - slack
 - spotify
 - tableplus

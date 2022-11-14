@@ -90,3 +90,4 @@ pipx_packages:
 - pip-tools
 - poetry
 - pyupgrade
+- rembg

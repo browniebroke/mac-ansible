@@ -76,3 +76,9 @@
   command: pyenv rehash
   tags:
   - pyenv
+
+- name: Install pipx packages
+  command: pipx install {{ item }} --python ~/.pyenv/versions/{{ pyenv_python_versions[0] }}/bin/python
+  loop: '{{ pipx_packages }}'
+  tags:
+  - pipx

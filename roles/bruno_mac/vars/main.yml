@@ -78,3 +78,15 @@ pyenv_python_versions:
 - 3.8.15
 - 3.7.15
 - 3.11.0
+
+pipx_packages:
+- black
+- blue
+- cookiecutter
+- django-upgrade
+- flake8
+- isort
+- mypy
+- pip-tools
+- poetry
+- pyupgrade

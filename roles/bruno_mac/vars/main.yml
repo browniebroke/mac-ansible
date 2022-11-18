@@ -83,6 +83,7 @@ pipx_packages:
 - black
 - blue
 - cookiecutter
+- copier
 - django-upgrade
 - flake8
 - isort

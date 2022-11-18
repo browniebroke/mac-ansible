@@ -79,6 +79,10 @@
 
 - name: Install pipx packages
   command: pipx install {{ item }} --python ~/.pyenv/versions/{{ pyenv_python_versions[0] }}/bin/python
+  register: pipx_install_result
+  changed_when: >
+    pipx_install_result.rc == 0 and
+    "'" + item + "' already seems to be installed." not in pipx_install_result.stdout
   loop: '{{ pipx_packages }}'
   tags:
   - pipx

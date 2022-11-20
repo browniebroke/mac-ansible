@@ -82,6 +82,7 @@ pyenv_python_versions:
 pipx_packages:
 - black
 - blue
+- browniebroke-utils
 - cookiecutter
 - copier
 - django-upgrade

@@ -43,6 +43,8 @@ homebrew_packages:
 homebrew_cask_packages:
 - 1password
 - 1password-cli
+- backblaze
+- backblaze-downloader
 - cryptomator
 - daisydisk
 - discord

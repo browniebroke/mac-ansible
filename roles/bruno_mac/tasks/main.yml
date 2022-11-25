@@ -3,3 +3,6 @@
 
 - name: Install things
   import_tasks: installs.yml
+
+- name: Setup more advanced stuff
+  import_tasks: setup.yml

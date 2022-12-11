@@ -32,7 +32,6 @@ homebrew_packages:
 - sd
 - shellcheck
 - sqlite
-- stats
 - tree
 - wagoodman/dive/dive
 - watch
@@ -69,6 +68,7 @@ homebrew_cask_packages:
 - rectangle
 - slack
 - spotify
+- stats
 - tableplus
 - the-unarchiver
 - visual-studio-code

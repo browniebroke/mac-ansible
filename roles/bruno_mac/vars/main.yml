@@ -64,6 +64,7 @@ homebrew_cask_packages:
 - iterm2
 - jetbrains-toolbox
 - krita
+- notion
 - openvpn-connect
 - rectangle
 - slack

@@ -10,11 +10,13 @@
     shell: sw_vers -productVersion
     register: macosversion
     failed_when: macosversion.stdout is version('10.13', '<')
+    changed_when: false
 
   - name: Check Xcode is installed
     shell: xcode-select -p
     register: xcodeselectpath
     failed_when: xcodeselectpath.rc != 0
+    changed_when: false
 
 - hosts: localhost
   connection: local

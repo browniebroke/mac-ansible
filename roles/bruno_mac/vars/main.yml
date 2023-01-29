@@ -3,6 +3,7 @@ homebrew_packages:
 - awscli
 - cmatrix
 - coreutils
+- doctl
 - duf
 - ffmpeg
 - flyctl

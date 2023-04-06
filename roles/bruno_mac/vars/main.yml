@@ -27,6 +27,7 @@ homebrew_packages:
 - pre-commit
 - pwgen
 - pyenv
+- rclone
 - rich-cli
 - ripgrep
 - rsync

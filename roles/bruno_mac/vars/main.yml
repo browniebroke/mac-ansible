@@ -4,7 +4,6 @@ homebrew_packages:
 - cmatrix
 - coreutils
 - doctl
-- dotnet-sdk
 - duf
 - ffmpeg
 - flyctl

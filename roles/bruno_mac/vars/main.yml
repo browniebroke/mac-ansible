@@ -85,11 +85,11 @@ homebrew_cask_packages:
 
 pyenv_python_versions:
 # In precedence order
-- 3.10.11
-- 3.9.16
-- 3.8.16
-- 3.7.16
-- 3.11.3
+- 3.11.5
+- 3.10.13
+- 3.9.18
+- 3.8.18
+- 3.7.17
 - 3.12-dev
 
 pipx_packages:

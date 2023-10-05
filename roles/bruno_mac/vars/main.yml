@@ -23,7 +23,6 @@ homebrew_packages:
 - pandoc
 - pkg-config
 - pipx
-- postgresql
 - pre-commit
 - pwgen
 - pyenv

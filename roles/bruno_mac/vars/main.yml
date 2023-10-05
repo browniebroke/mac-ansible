@@ -9,7 +9,7 @@ homebrew_packages:
 - flyctl
 - gdal
 - git
-- github/gh/gh
+- gh
 - gnu-sed
 - gpg
 - heroku/brew/heroku

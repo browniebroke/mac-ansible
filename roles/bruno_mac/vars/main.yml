@@ -1,6 +1,7 @@
 homebrew_packages:
 - autojump
 - awscli
+- browniebroke/tap/stsmfa-cli
 - cmatrix
 - coreutils
 - doctl
@@ -95,6 +96,5 @@ pipx_packages:
 - flake8
 - isort
 - mypy
-- pip-tools
 - poetry
 - pyupgrade

@@ -79,16 +79,15 @@ homebrew_cask_packages:
 
 pyenv_python_versions:
 # In precedence order
-- 3.11.6
+- 3.11.7
 - 3.10.13
 - 3.9.18
 - 3.8.18
 - 3.7.17
-- 3.12.0
+- 3.12.1
 
 pipx_packages:
 - black
-- blue
 - browniebroke-utils
 - cookiecutter
 - copier
@@ -99,4 +98,3 @@ pipx_packages:
 - pip-tools
 - poetry
 - pyupgrade
-- rembg

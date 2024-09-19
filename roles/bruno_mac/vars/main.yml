@@ -41,7 +41,6 @@ homebrew_packages:
 - watch
 - watchman
 - wget
-- withgraphite/tap/graphite
 - zlib
 - zsh-completions
 

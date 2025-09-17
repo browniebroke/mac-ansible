@@ -56,6 +56,7 @@ homebrew_cask_packages:
 - expressvpn
 - figma
 - firefox
+- ghostty
 - google-chrome
 - homebrew/cask/docker
 - insomnia

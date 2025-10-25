@@ -18,71 +18,40 @@
   tags:
   - brew
 
-- name: Upgrade pyenv
-  shell: brew unlink pyenv && brew install --head --fetch-head pyenv && brew link pyenv --head
-  tags:
-  - pyenv
-
 - name: homebrew cleanup
   command: brew cleanup
 
-# If pyenv fails, check https://github.com/pyenv/pyenv/wiki/Common-build-problems#build-failed-error-the-python-zlib-extension-was-not-compiled-missing-the-zlib
-- name: python versions
-  command: pyenv install {{ item }}
-  environment:
-    CONFIGURE_OPTS: --enable-optimizations
-  register: pyenv_install_result
-  failed_when: >
-    pyenv_install_result.rc != 0 and
-    pyenv_install_result.stderr_lines != ["pyenv: /Users/bruno/.pyenv/versions/" + item + " already exists"]
-  loop: '{{ pyenv_python_versions }}'
+- name: uv install latest Pythons
+  command: uv python install --reinstall {{ item }}
+  loop: '{{ uv_python_versions }}'
+  register: uv_python_install
+  changed_when: "'All requested versions already installed' not in uv_python_install.stderr"
   tags:
-  - pyenv
+  - uv
 
-- name: python versions active
-  command: pyenv global {{ pyenv_python_versions|join(" ") }}
+- name: uv install tools
+  command: >
+    uv tool install
+    --python 3.12
+    {{ item.name }}
+    {% if item.with is defined %}
+    {% for w in item.with %}--with {{ w }}{% endfor %}
+    {% endif %}
+  loop: '{{ uv_tools }}'
+  register: uv_tool_install
+  changed_when: "'already installed' not in uv_tool_install.stderr"
   tags:
-  - pyenv
+  - uv
 
-- name: pyenv rehash
-  command: pyenv rehash
+- name: uv upgrade tools
+  command: >
+    uv tool upgrade
+    {{ item.name }}
+    {% if item.with is defined %}
+    {% for w in item.with %}--upgrade-package {{ w }}{% endfor %}
+    {% endif %}
+  loop: '{{ uv_tools }}'
+  register: uv_upgrade
+  changed_when: "'Nothing to upgrade' not in uv_upgrade.stderr"
   tags:
-  - pyenv
-
-- name: python versions latest build requirements
-  pip:
-    name:
-    - Cython
-    - pip
-    - pip-tools
-    - setuptools
-    - virtualenv
-    state: latest
-    executable: '~/.pyenv/versions/{{ item }}/bin/pip{% if "pypy3" in item %}3{% endif %}'
-  environment:
-    PIP_REQUIRE_VIRTUALENV: "0"
-  loop: '{{ pyenv_python_versions }}'
-  tags:
-  - pyenv
-
-- name: virtualenv update embed wheels
-  command: ~/.pyenv/versions/{{ pyenv_python_versions[0] }}/bin/python -m virtualenv --upgrade-embed-wheels
-  environment:
-    PIP_REQUIRE_VIRTUALENV: "0"
-  tags:
-  - pyenv
-
-- name: pyenv rehash
-  command: pyenv rehash
-  tags:
-  - pyenv
-
-- name: Install pipx packages
-  command: pipx install {{ item }} --python ~/.pyenv/versions/{{ pyenv_python_versions[0] }}/bin/python
-  register: pipx_install_result
-  changed_when: >
-    pipx_install_result.rc == 0 and
-    "'" + item + "' already seems to be installed." not in pipx_install_result.stdout
-  loop: '{{ pipx_packages }}'
-  tags:
-  - pipx
+  - uv

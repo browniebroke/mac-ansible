@@ -23,10 +23,7 @@ homebrew_packages:
 - openssl
 - pandoc
 - pkg-config
-- pipx
-- pre-commit
 - pwgen
-- pyenv
 - rclone
 - rich-cli
 - ripgrep
@@ -37,10 +34,11 @@ homebrew_packages:
 - sqlite
 - terraform
 - tree
+- uv
 - wagoodman/dive/dive
 - watch
-- watchman
 - wget
+- yt-dlp
 - zlib
 - zsh-completions
 
@@ -50,6 +48,7 @@ homebrew_cask_packages:
 - backblaze
 - backblaze-downloader
 - cryptomator
+- cursor
 - daisydisk
 - discord
 - dropbox
@@ -60,11 +59,11 @@ homebrew_cask_packages:
 - google-chrome
 - homebrew/cask/docker
 - insomnia
-- iterm2
 - jetbrains-toolbox
 - krita
 - notion
 - raspberry-pi-imager
+- raycast
 - rectangle
 - slack
 - spotify
@@ -76,23 +75,33 @@ homebrew_cask_packages:
 - warp
 - zoom
 
-pyenv_python_versions:
-# In precedence order
-- 3.14.0
-- 3.13.9
-- 3.12.12
-- 3.11.14
-- 3.10.19
-- 3.9.24
+uv_python_versions:
+- "3.14"
+- "3.14t"
+- "3.13"
+- "3.13t"
+- "3.12"
+- "3.11"
+- "3.10"
+- "3.9"
 
-pipx_packages:
-- black
-- browniebroke-utils
-- cookiecutter
-- copier
-- django-upgrade
-- flake8
-- isort
-- mypy
-- poetry
-- pyupgrade
+uv_tools:
+- name: black
+- name: browniebroke-utils
+- name: cookiecutter
+- name: copier
+- name: django-upgrade
+- name: flake8
+- name: isort
+- name: mypy
+- name: pre-commit
+  with:
+  - pre-commit-uv
+- name: poetry
+- name: pyupgrade
+- name: ruff
+- name: tox
+  with:
+  - tox-uv
+- name: twine
+- name: yt-dlp

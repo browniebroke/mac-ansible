@@ -35,7 +35,7 @@ homebrew_packages:
 - terraform
 - tree
 - uv
-- wagoodman/dive/dive
+- dive
 - watch
 - wget
 - yt-dlp
@@ -72,7 +72,6 @@ homebrew_cask_packages:
 - visual-studio-code
 - vlc
 - whatsapp
-- warp
 - zoom
 
 uv_python_versions:
